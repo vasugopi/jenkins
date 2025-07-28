@@ -2,9 +2,21 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Clone') {
             steps {
-                echo 'Hello World'
+                echo "Cloning from GitHub..."
+                checkout scm
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Running build process...'
+                // Example: sh 'mvn clean install'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
             }
         }
     }
